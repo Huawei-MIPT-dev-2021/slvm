@@ -1,4 +1,5 @@
-#include "utils/utils.h"
+#include "utils/filemap.h"
+#include "utils/strtab.h"
 #include <iostream>
 
 int main(int argc, char **argv)
@@ -9,9 +10,10 @@ int main(int argc, char **argv)
 		return 1;
 	}
 
+	util::StrTab strtab;
+
 	char *c = (char *)fmap->GetMem();
-	for (size_t i = 0; i < fmap->GetSize(); ++i)
-		std::cout << c[i];
+	std::cout << strtab.UniqueStr(c);
 
 	return 0;
 }
