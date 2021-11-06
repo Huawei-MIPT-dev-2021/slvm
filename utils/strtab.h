@@ -12,6 +12,7 @@ class StrTab
 {
 public:
 	char const *UniqueStr(char const *str);
+	char const *UniqueStrN(char const *str, u16 len);
 
 private:
 	struct StrInfo {

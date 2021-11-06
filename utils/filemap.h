@@ -13,7 +13,7 @@ public:
 		RDWR,
 	};
 
-	static std::optional<FileMap> Create(char const *path, Mode mode);
+	static std::optional<FileMap> Create(char const *path, Mode mode, bool pad_zero = false);
 
 	u8 *GetMem()
 	{
@@ -27,11 +27,12 @@ public:
 
 	~FileMap();
 
-	FileMap& operator=(FileMap &x) = delete;
-	FileMap& operator=(FileMap &&x) = delete;
+	FileMap &operator=(FileMap &x) = delete;
+	FileMap &operator=(FileMap &&x) = delete;
 
-	FileMap(FileMap&) = delete;
-	FileMap(FileMap&& x)
+	FileMap() = delete;
+	FileMap(FileMap &) = delete;
+	FileMap(FileMap &&x)
 	{
 		new (this) FileMap(x.fd, x.mem, x.size);
 		x.mem = nullptr;

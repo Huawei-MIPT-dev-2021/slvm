@@ -18,6 +18,12 @@ typedef int64_t i64;
 #define ASSERT(e) assert(e)
 #define UNREACHABLE() assert(!"unreachable");
 
+template <class T, size_t S>
+size_t ARRAY_SIZE(T (&)[S])
+{
+	return S;
+}
+
 static inline u32 next_pow2_32(u32 x)
 {
 	x |= x >> 1;
@@ -38,8 +44,6 @@ static inline u64 next_pow2_64(u64 x)
 	x |= x >> 32;
 	return x;
 }
-
-#define ARRAY_SIZE(a) (sizeof(a) / sizeof(a[0]))
 
 #define container_of(ptr, type, member)                                                            \
 	({                                                                                         \

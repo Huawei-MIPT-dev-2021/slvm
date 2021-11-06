@@ -1,5 +1,6 @@
 add_executable(cjlcc
 	cjlcc.cpp
+	lex.cpp
 )
 
 target_include_directories(cjlcc PUBLIC "${PROJECT_SOURCE_DIR}")

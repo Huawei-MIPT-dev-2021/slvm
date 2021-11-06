@@ -1,0 +1,5 @@
+DEF_KWORD(CLASS, "class")
+DEF_KWORD(IF, "if")
+DEF_KWORD(PUBLIC, "public")
+DEF_KWORD(STATIC, "static")
+DEF_KWORD(VOID, "void")
